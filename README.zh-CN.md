@@ -32,6 +32,7 @@ composer require qycorp/wework-finance-sdk
 代码示例
 ```
 $sdk = new \Qycorp\WeworkFinance\SDK([
+    // 'api_base' => '自定义API服务地址' provider = api 时可用
     'provider'  => 'api', // ffi ext api 三种方式可选 默认api方式
     'corpid'    => 'xxxxxxxxxxxxxxxxxxxx',
     'secret'    => 'xxxxxxxxxxxxxxxxxxxx',

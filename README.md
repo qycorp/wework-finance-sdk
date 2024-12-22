@@ -32,6 +32,7 @@ composer require qycorp/wework-finance-sdk
 Code Example:
 ```
 $sdk = new \Qycorp\WeworkFinance\SDK([
+// 'api_mase'=>'Custom API Service Address' is available when provider=API
 'provider' => 'api', // ffi ext api three methods optional default api method
 'corpid' => 'xxxxxxxxxxxxxxxxxxxx',
 'secret' => 'xxxxxxxxxxxxxxxxxxxx',
