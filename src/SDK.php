@@ -32,12 +32,10 @@ class SDK {
             throw new \Exception('缺少配置:private_keys');
         }
 
-        if (empty($config['provider'])) {
-            $config['provider'] = 'api';
-        }
+        $this->config['provider'] = empty($config['provider']) ? 'api' : $config['provider'];
 
-        if (isset($this->providers[$config['provider']])) {
-            $this->sdk = new $this->providers[$config['provider']]($this->config);
+        if (isset($this->providers[$this->config['provider']])) {
+            $this->sdk = new $this->providers[$this->config['provider']]($this->config);
         }
     }
 
@@ -65,7 +63,7 @@ class SDK {
     {
         $privateKeys = $this->config['private_keys'];
 
-        if ($this->config['provider'] === 'api') {
+        if (isset($this->config['provider']) && $this->config['provider'] === 'api') {
             return $this->sdk->getDecryptChatData($seq, $limit, $retry);
         }
 
@@ -91,7 +89,7 @@ class SDK {
                 $newChatData[$i] = json_decode($this->sdk->decryptData($decryptRandKey, $item['encrypt_chat_msg']), true);
                 $newChatData[$i]['seq'] = $item['seq'];
             }
-            if ( ! empty($chatData) && empty($chatData) && $retry && $retry < 10) {
+            if ( ! empty($chatData) && empty($newChatData) && $retry && $retry < 10) {
                 return $this->getDecryptChatData($lastSeq, $limit, ++$retry);
             }
 
