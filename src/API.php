@@ -97,7 +97,7 @@ class API {
         $result = json_decode($request['msg'], true);
 
         if (!empty($result['status_code'])) {
-            throw new \Exception($result['data']);
+            throw new \Exception($result['message']);
         }
 
         $stream = base64_decode($result['data']);
