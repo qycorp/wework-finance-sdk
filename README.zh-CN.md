@@ -32,6 +32,7 @@ composer require qycorp/wework-finance-sdk
 代码示例
 ```
 $sdk = new \Qycorp\WeworkFinance\SDK([
+    // 'api_base' => '自定义API服务地址' provider = api 时可用
     'provider'  => 'api', // ffi ext api 三种方式可选 默认api方式
     'corpid'    => 'xxxxxxxxxxxxxxxxxxxx',
     'secret'    => 'xxxxxxxxxxxxxxxxxxxx',
@@ -55,7 +56,7 @@ cd build/docker/
 # 卸载镜像及容器
 ./build.sh uninstall
 # 你也可以使用我们制作的docker Hub镜像一键启动
-docker run -itd --restart=always --privileged=true -h weworkmsg --name=weworkmsg -p 7149:7149 qycorp/wework-finances-api:1.0.0
+docker run -itd --restart=always --privileged=true -h weworkmsg --name=weworkmsg -e WECOMMSG_HOST=0.0.0.0 -p 7149:7149 qycorp/wework-finances-api:1.0.0
 ```
 2. `ffi.sh` - 编译PHP原生FFI扩展
 ```bash

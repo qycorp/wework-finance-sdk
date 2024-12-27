@@ -9,17 +9,31 @@ class API {
     protected $config = [];
 
     public function __construct($config) {
+
+        if (!empty($config['api_base'])) {
+            $this->api = $config['api_base'];
+        }
+
         $this->config = [
             'corpid'        => $config['corpid'],
             'secret'        => $config['secret'],
-            'private_key'   => current($config['private_keys']),
+            'private_keys'  => $config['private_keys'],
         ];
+
+        $this->healthCheck();
+    }
+
+    protected function healthCheck() {
         $api = $this->api . '/health_check';
-
         $state = $this->request($api);
-
         if (empty($state['ret']) || $state['msg'] !== 'OK') {
-            throw new \Exception('请检查API服务是否正常');
+            $get_docker_base_ip = gethostbyname('host.docker.internal');
+            if (filter_var($get_docker_base_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+                $this->api = sprintf('http://%s:7149', $get_docker_base_ip);
+                $this->healthCheck();
+            } else {
+                throw new \Exception('请检查API服务是否正常');
+            }
         }
     }
 
@@ -47,6 +61,10 @@ class API {
                     $chatData[$key] = $chat['message'];
                 }
             }
+        }
+
+        if (empty($chatData) && $retry && $retry < 10) {
+            return $this->getDecryptChatData($seq, $limit, ++$retry);
         }
 
         return $chatData;

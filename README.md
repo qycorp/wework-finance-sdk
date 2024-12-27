@@ -32,12 +32,13 @@ composer require qycorp/wework-finance-sdk
 Code Example:
 ```
 $sdk = new \Qycorp\WeworkFinance\SDK([
-'provider' => 'api', // ffi ext api three methods optional default api method
-'corpid' => 'xxxxxxxxxxxxxxxxxxxx',
-'secret' => 'xxxxxxxxxxxxxxxxxxxx',
-'private_keys' => [
-'version number' => 'decryption private key'
-]
+    // 'api_mase'=>'Custom API Service Address' is available when provider=API
+    'provider' => 'api', // ffi ext api three methods optional default api method
+    'corpid' => 'xxxxxxxxxxxxxxxxxxxx',
+    'secret' => 'xxxxxxxxxxxxxxxxxxxx',
+    'private_keys' => [
+        'version number' => 'decryption private key'
+    ]
 ]);
 
 $data = $sdk->getDecryptChatData(0, 50, 3);
@@ -55,7 +56,7 @@ cd build/docker/
 # Uninstall image and container
 ./build.sh uninstall
 # You can also use our Docker Hub image to start with just one click
-docker run -itd --restart=always --privileged=true -h weworkmsg --name=weworkmsg -p 7149:7149 qycorp/wework-finances-api:1.0.0
+docker run -itd --restart=always --privileged=true -h weworkmsg --name=weworkmsg -e WECOMMSG_HOST=0.0.0.0 -p 7149:7149 qycorp/wework-finances-api:1.0.0
 ```
 2. `ffi.sh` - Compile PHP native FFI extension
 ```bash
