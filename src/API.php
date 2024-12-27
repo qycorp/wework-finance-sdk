@@ -56,7 +56,7 @@ class API {
 
         if ($result['ret']) {
             $data = json_decode($result['msg'], true);
-            if (empty($data['err_code']) && !empty($data['data'])) {
+            if (empty($data['status_code']) && !empty($data['data'])) {
                 foreach ($data['data'] as $key => $chat) {
                     $chatData[$key] = $chat['message'];
                 }
@@ -96,7 +96,7 @@ class API {
 
         $result = json_decode($request['msg'], true);
 
-        if (!empty($result['err_code'])) {
+        if (!empty($result['status_code'])) {
             throw new \Exception($result['data']);
         }
 
