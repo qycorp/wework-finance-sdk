@@ -58,6 +58,7 @@ class API {
             $data = json_decode($result['msg'], true);
             if (empty($data['status_code']) && !empty($data['data'])) {
                 foreach ($data['data'] as $key => $chat) {
+		    $chat['message']['seq'] = $chat['seq'];
                     $chatData[$key] = $chat['message'];
                 }
             }
