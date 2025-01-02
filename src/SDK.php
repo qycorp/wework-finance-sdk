@@ -1,5 +1,5 @@
 <?php
-namespace Qycorp\WeworkFinance;
+namespace X2nx\WeworkFinance;
 
 use Exception;
 
@@ -15,9 +15,9 @@ class SDK {
     protected $sdk;
 
     protected $providers = [
-        'api' => \Qycorp\WeworkFinance\API::class,
-        'ffi' => \Qycorp\WeworkFinance\FFI::class,
-        'ext' => \Qycorp\WeworkFinance\EXT::class,
+        'api' => \X2nx\WeworkFinance\API::class,
+        'ffi' => \X2nx\WeworkFinance\FFI::class,
+        'ext' => \X2nx\WeworkFinance\EXT::class,
     ];
 
     public function __construct($config = []) {

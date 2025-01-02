@@ -1,5 +1,5 @@
 <?php
-namespace Qycorp\WeworkFinance;
+namespace X2nx\WeworkFinance;
 
 require('vendor/autoload.php');
 

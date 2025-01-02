@@ -27,11 +27,11 @@
 
 Install using Composer:
 ```bash
-composer require qycorp/wework-finance-sdk
+composer require x2nx/wework-finance-sdk
 ```
 Code Example:
 ```
-$sdk = new \Qycorp\WeworkFinance\SDK([
+$sdk = new \X2nx\WeworkFinance\SDK([
     // 'api_mase'=>'Custom API Service Address' is available when provider=API
     'provider' => 'api', // ffi ext api three methods optional default api method
     'corpid' => 'xxxxxxxxxxxxxxxxxxxx',
@@ -56,7 +56,7 @@ cd build/docker/
 # Uninstall image and container
 ./build.sh uninstall
 # You can also use our Docker Hub image to start with just one click
-docker run -itd --restart=always --privileged=true -h weworkmsg --name=weworkmsg -e WECOMMSG_HOST=0.0.0.0 -p 7149:7149 qycorp/wework-finances-api:1.0.0
+docker run -itd --restart=always --privileged=true -h weworkmsg --name=weworkmsg -e WECOMMSG_HOST=0.0.0.0 -p 7149:7149 x2nx/wework-finances-api:1.0.0
 ```
 2. `ffi.sh` - Compile PHP native FFI extension
 ```bash

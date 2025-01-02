@@ -1,12 +1,12 @@
 {
-    "name": "qycorp/wework-finance-sdk",
+    "name": "x2nx/wework-finance-sdk",
     "description": "Enterprise WeChat Conversation Content Archive PHP Extension",
     "type": "library",
     "license": "MIT",
-    "homepage": "https://github.com/qycorp/wework-finance-sdk",
+    "homepage": "https://github.com/x2nx/wework-finance-sdk",
     "autoload": {
         "psr-4": {
-            "Qycorp\\WeworkFinance\\": "src/"
+            "X2nx\\WeworkFinance\\": "src/"
         }
     },
     "authors": [
