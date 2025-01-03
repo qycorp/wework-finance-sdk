@@ -56,7 +56,7 @@ cd build/docker/
 # Uninstall image and container
 ./build.sh uninstall
 # You can also use our Docker Hub image to start with just one click
-docker run -itd --restart=always --privileged=true -h weworkmsg --name=weworkmsg -e WECOMMSG_HOST=0.0.0.0 -p 7149:7149 x2nx/wework-finances-api:1.0.0
+docker run -itd --restart=always --privileged=true -h weworkmsg --name=weworkmsg -e WECOMMSG_HOST=0.0.0.0 -p 7149:7149 x2nx/wework-finances-api:v1.0.0
 ```
 2. `ffi.sh` - Compile PHP native FFI extension
 ```bash

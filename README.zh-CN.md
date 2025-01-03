@@ -56,7 +56,7 @@ cd build/docker/
 # 卸载镜像及容器
 ./build.sh uninstall
 # 你也可以使用我们制作的docker Hub镜像一键启动
-docker run -itd --restart=always --privileged=true -h weworkmsg --name=weworkmsg -e WECOMMSG_HOST=0.0.0.0 -p 7149:7149 x2nx/wework-finances-api:1.0.0
+docker run -itd --restart=always --privileged=true -h weworkmsg --name=weworkmsg -e WECOMMSG_HOST=0.0.0.0 -p 7149:7149 x2nx/wework-finances-api:v1.0.0
 ```
 2. `ffi.sh` - 编译PHP原生FFI扩展
 ```bash
